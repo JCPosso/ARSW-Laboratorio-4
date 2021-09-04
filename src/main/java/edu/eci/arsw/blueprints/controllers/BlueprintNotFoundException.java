@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @author hcadavid
  */
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class ResourceNotFoundException extends Exception{
-    
+public class BlueprintNotFoundException extends Exception{
+    @Override
+    public String getMessage() {
+
+        return super.getMessage();
+    }
 }
