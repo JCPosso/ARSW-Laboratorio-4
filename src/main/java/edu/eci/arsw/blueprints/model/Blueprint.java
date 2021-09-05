@@ -93,7 +93,9 @@ public class Blueprint {
         
         return true;
     }
-    
-    
-    
+
+
+    public void setName(String bpname) {
+        this.name = bpname;
+    }
 }

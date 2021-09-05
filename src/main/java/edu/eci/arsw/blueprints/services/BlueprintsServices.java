@@ -32,11 +32,6 @@ public class BlueprintsServices {
     @Qualifier("InMemoryBlueprintPersistence")
     BlueprintsPersistence bpp;
     
-    
-    
-    
-    
-    
     public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException{
         bpp.saveBlueprint(bp);
     }
@@ -73,5 +68,8 @@ public class BlueprintsServices {
     public Blueprint filterPoints(Blueprint bp){
         return filter.filterPoints(bp);
     }
-    
+
+    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintPersistenceException {
+        bpp.setBlueprint(author,bpname,bp);
+    }
 }

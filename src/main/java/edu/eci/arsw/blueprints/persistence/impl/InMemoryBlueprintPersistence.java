@@ -84,6 +84,17 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         return ans;
     }
 
-    
-    
+    @Override
+    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintPersistenceException {
+        Set<Blueprint> ans = new HashSet<Blueprint>();
+        Boolean flag = true;
+        for ( Tuple<String,String> key:blueprints.keySet()){
+                if (key.getElem1().equals(bp.getAuthor())) {
+                    blueprints.get( key ).setName( bpname );
+                    flag= false;
+                    break;
+                }
+        }
+        if (flag) saveBlueprint(bp);
+    }
 }

@@ -37,4 +37,6 @@ public interface BlueprintsPersistence {
     public void talk();
 
     public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException;
+
+    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintPersistenceException;
 }

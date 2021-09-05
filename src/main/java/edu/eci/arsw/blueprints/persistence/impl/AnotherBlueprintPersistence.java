@@ -62,6 +62,11 @@ public class AnotherBlueprintPersistence implements BlueprintsPersistence{
     }
 
     @Override
+    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintPersistenceException {
+
+    }
+
+    @Override
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
