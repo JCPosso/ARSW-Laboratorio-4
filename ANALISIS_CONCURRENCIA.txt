@@ -1,0 +1,9 @@
+Análisis:
+
+Las condiciones de Carrera que se podrían presentar serian sobre el agregar y editar blueprints
+
+La región critica es en el momento que editamos y sobre escribimos, pero solo en el blueprint especifico en el que hacemos estas acciones.
+
+Para esto planteamos una estructura de datos que nos ofrece java que es ConcurrentHashMap
+
+Pues poner un bloque de sincronización en las funciones de aditar y agregar sería muy costoso por otro lado esta estructura de datos nos ayuda a bloquear solo el blueprint que agregaremos o editaremos dejándonos trabajar en varios a la vez y permitiendo lectura en estos.

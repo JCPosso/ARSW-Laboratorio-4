@@ -69,7 +69,7 @@ public class BlueprintsServices {
         return filter.filterPoints(bp);
     }
 
-    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintPersistenceException {
+    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintNotFoundException {
         bpp.setBlueprint(author,bpname,bp);
     }
 }

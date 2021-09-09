@@ -62,7 +62,7 @@ public class AnotherBlueprintPersistence implements BlueprintsPersistence{
     }
 
     @Override
-    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintPersistenceException {
+    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintNotFoundException {
 
     }
 

@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  *
@@ -27,7 +28,7 @@ import java.util.Set;
 @Qualifier("InMemoryBlueprintPersistence")
 public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
 
-    private final Map<Tuple<String,String>,Blueprint> blueprints=new HashMap<>();
+    private final ConcurrentHashMap<Tuple<String,String>,Blueprint> blueprints=new ConcurrentHashMap();
 
     public InMemoryBlueprintPersistence() {
         //load stub data
@@ -85,16 +86,9 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
     }
 
     @Override
-    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintPersistenceException {
-        Set<Blueprint> ans = new HashSet<Blueprint>();
-        Boolean flag = true;
-        for ( Tuple<String,String> key:blueprints.keySet()){
-                if (key.getElem1().equals(bp.getAuthor())) {
-                    blueprints.get( key ).setName( bpname );
-                    flag= false;
-                    break;
-                }
-        }
-        if (flag) saveBlueprint(bp);
+    public void setBlueprint(String author, String bpname, Blueprint bp) throws BlueprintNotFoundException {
+        Blueprint obp = getBlueprint( author,bpname );
+        obp.setPoints(bp.getPoints());
+
     }
 }

@@ -98,4 +98,8 @@ public class Blueprint {
     public void setName(String bpname) {
         this.name = bpname;
     }
+
+    public void setPoints(List<Point> points) {
+        this.points= points;
+    }
 }
